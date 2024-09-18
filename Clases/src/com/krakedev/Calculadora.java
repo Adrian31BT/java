@@ -19,4 +19,11 @@ public class Calculadora {
 		return producto;
 	}
 	
+	public double dividir(double dividendo, double divisor){
+		double cociente;
+		cociente = dividendo / divisor;
+		return cociente;
+	}
+	
+	
 }
