@@ -8,23 +8,22 @@ public class TestRectangulo {
 		Rectangulo p = new Rectangulo();
 		
 		int areaR1;
-		r1.base = 10;
-		r1.altura = 5;
+		r1.setBase(10);
+		r1.setAltura(5);;
 		areaR1 = r1.calcularArea();
 		System.out.println("Area de r1: "+areaR1);
 		
 		int areaR2;
-		r2.base = 8;
-		r2.altura = 3;
+		r2.setBase(8);
+		r2.setAltura(3);
 		areaR2 = r2.calcularArea();
 		System.out.println("Area de r2: "+areaR2);
 		
 		double perimetro;
-		p.base = 2;
-		p.altura = 8;
+		p.setBase(2);
+		p.setAltura(8);
 		perimetro = p.calcularPerimetro();
 		System.out.println("Perimetro: "+perimetro);
-	
 	}
 
 }
