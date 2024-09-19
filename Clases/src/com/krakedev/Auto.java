@@ -5,6 +5,12 @@ public class Auto {
 	private int anio;
 	private double precio;
 	
+	public Auto (String marca, int anio, double precio) {
+		this.marca = marca;
+		this.anio = anio;
+		this.precio = precio;
+	}
+	
 	public String getMarca() {
 		return marca;
 	}
