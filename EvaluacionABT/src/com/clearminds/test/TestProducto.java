@@ -5,7 +5,7 @@ import com.clearminds.componentes.Producto;
 public class TestProducto {
 	public static void main(String[] args) {
 		Producto producto=new Producto("KE34","Papitas",0.85);
-		System.out.println("Código:"+producto.getCodigo());
+		System.out.println("Cï¿½digo:"+producto.getCodigo());
 		System.out.println("Nombre:"+producto.getNombre());
 		System.out.println("Precio:"+producto.getPrecio());
 		System.out.println("*************************************");
@@ -17,7 +17,6 @@ public class TestProducto {
 		
 		producto.disminuirPrecio(0.35);;
 		System.out.println("Precio incrementado:"+producto.getPrecio());
-		
-		
+
 	}
 }
