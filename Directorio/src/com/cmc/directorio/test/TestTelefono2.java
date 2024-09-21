@@ -10,7 +10,6 @@ public class TestTelefono2 {
 		AdminTelefono at = new AdminTelefono();
 		at.activarMensajeria(telf);
 		telf.imprimir();
-
 	}
 
 }
