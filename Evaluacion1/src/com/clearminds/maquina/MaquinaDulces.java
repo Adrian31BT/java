@@ -50,6 +50,8 @@ public class MaquinaDulces {
 						+ " Sin producto asignado");
 			}
 		}
+		
+		System.out.println("Saldo: "+saldo);
 	}
 	
 	public Producto buscarProductoEnCelda(String codCelda) {
@@ -60,5 +62,72 @@ public class MaquinaDulces {
 			elementoProducto = celdaEncontrada.getProducto();
 		}
 		return elementoProducto;
+	}
+	
+	public double consultarPrecio(String codCelda) {
+		double precioEncontrado = 0;
+		Celda celdaEncontrada = null;
+		celdaEncontrada = buscarCelda(codCelda);
+		if(celdaEncontrada != null) {
+			precioEncontrado = celdaEncontrada.getProducto().getPrecio();
+		}
+		return precioEncontrado;
+	}
+	
+	public Celda buscarCeldaProducto(String codProd) {
+		Celda elementoCelda = null;
+		for (int i = 0; i < celdas.size(); i++) {		
+			if(celdas.get(i).getProducto() != null) {
+				if(codProd.equals(celdas.get(i).getProducto().getCodigo())) {
+					elementoCelda = celdas.get(i);
+				}
+			}
+		}
+		return elementoCelda;
+	}
+	
+	public void incrementarProductos(String codProd, int cantidad) {
+		Celda celdaEncontrada = buscarCeldaProducto(codProd);
+		int stock = celdaEncontrada.getStock();
+		celdaEncontrada.setStock(stock + cantidad);
+	}
+	
+	public void vender(String codCelda) {
+		Celda celdaEncontrada = null;
+		int stock = 0;
+		double precio = 0;
+		
+		celdaEncontrada = buscarCelda(codCelda);
+		stock = celdaEncontrada.getStock();
+		celdaEncontrada.setStock(stock - 1);
+		precio = celdaEncontrada.getProducto().getPrecio();
+		saldo = saldo + precio;
+	}
+	
+	public double venderConCambio(String codCelda, double valor) {
+		int stock = 0;
+		double precio = 0;
+		double vuelto = 0;
+		
+		Celda celdaEncontrada = null;
+		celdaEncontrada = buscarCelda(codCelda);
+		stock = celdaEncontrada.getStock();
+		celdaEncontrada.setStock(stock - 1);
+		precio = celdaEncontrada.getProducto().getPrecio();
+		saldo = saldo + precio;
+		vuelto = valor - precio;
+		return vuelto;
+	}
+	
+	public ArrayList<Producto> buscarMenores(double limite){
+		Producto prod = null;
+		ArrayList<Producto> productosM = new ArrayList<Producto>();
+		for (int i = 0; i < celdas.size(); i++) {
+			if(celdas.get(i).getProducto().getPrecio() <= limite) {
+				prod = celdas.get(i).getProducto();
+				productosM.add(prod);
+			}
+		}
+		return productosM;
 	}
 }
