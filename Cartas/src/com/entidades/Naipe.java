@@ -1,7 +1,6 @@
-package entidades;
+package com.entidades;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Naipe {
 	private ArrayList<Numero> numerosPosibles;

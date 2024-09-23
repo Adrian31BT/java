@@ -1,4 +1,4 @@
-package entidades;
+package com.entidades;
 
 public class Numero {
 	private String numeroCarta;
