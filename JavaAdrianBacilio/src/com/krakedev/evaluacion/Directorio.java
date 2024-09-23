@@ -52,4 +52,16 @@ public class Directorio {
 		}
 		return cont;
 	}
+	
+	public int contarFijos() {
+		int cont = 0;
+		for(int i=0; i<contactos.size(); i++) {		
+			for(int j=0; j<contactos.get(i).getTelefonos().size(); j++) {
+				if(contactos.get(i).getTelefonos().get(j).getEstado().equals("C") && contactos.get(i).getTelefonos().get(j).getTipo().equals("Convencional")) {
+					cont = cont+ 1;
+				}
+			}
+		}
+		return cont;
+	}
 }
