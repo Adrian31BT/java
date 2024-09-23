@@ -43,6 +43,16 @@ public class Contacto {
 		}
 	}
 
+	public ArrayList<Telefono> recuperarIncorrectos(){
+		ArrayList<Telefono> telRecuperados = new ArrayList<Telefono>();
+		for(int i = 0; i<telefonos.size(); i++) {
+			if(telefonos.get(i).getEstado().equals("E")) {
+				telRecuperados.add(telefonos.get(i));
+			}
+		}
+		return telRecuperados;
+	}
+	
 	public String getCedula() {
 		return cedula;
 	}
