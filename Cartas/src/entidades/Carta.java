@@ -10,7 +10,7 @@ public class Carta {
 	}
 	
 	public void mostrar() {
-		System.out.println(numero+"-"+palo);
+		System.out.println(numero.getNumeroCarta()+"-"+palo);
 	}
 	
 	public Numero getNumero() {
