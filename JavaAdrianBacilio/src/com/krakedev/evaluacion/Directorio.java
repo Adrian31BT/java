@@ -43,4 +43,13 @@ public class Directorio {
 		return conEncontrado;
 	}
 	
+	public int contarPerdidos() {
+		int cont = 0;
+		for(int i=0; i<contactos.size(); i++) {
+			if(contactos.get(i).getDireccion() == null) {
+				cont = cont + 1;
+			}
+		}
+		return cont;
+	}
 }
