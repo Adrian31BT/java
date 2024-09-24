@@ -6,8 +6,6 @@ public class Naipe {
 	private ArrayList<Numero> numerosPosibles;
 	private ArrayList<Carta> cartas;
 	
-	
-	
 	public Naipe() {
 		numerosPosibles = new ArrayList<Numero>();
 		cartas = new ArrayList<Carta>();
@@ -54,9 +52,28 @@ public class Naipe {
 		}
 	
 	}
-
-
-
+	
+	public ArrayList<Carta> barajar(){
+		ArrayList<Carta> auxiliar = new ArrayList<Carta>();
+		int respuesta = 0;
+		for(int i = 0; i < 99; i++){
+			respuesta = Random.obtenerPosicion();
+				if(cartas.get(respuesta).getEstado().equals("N")) {
+					auxiliar.add(cartas.get(respuesta));
+					cartas.get(respuesta).setEstado("C");
+				}
+		}
+		for(int x = 0; x < cartas.size(); x++) {
+			if(cartas.get(x).getEstado().equals("N")) {
+				auxiliar.add(cartas.get(x));
+				cartas.get(x).setEstado("C");
+			}
+		}
+		
+		return auxiliar;
+	}
+	
+	
 	public ArrayList<Carta> getCartas() {
 		return cartas;
 	}	
