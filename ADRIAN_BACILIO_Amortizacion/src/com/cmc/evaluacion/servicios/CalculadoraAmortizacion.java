@@ -8,10 +8,12 @@ public class CalculadoraAmortizacion {
 		double i;
 		double dividendo;
 		double divisor;
+		
 		i = (prestamo.getInteres()/12)/100;
 		dividendo = prestamo.getMonto() * i;
 		divisor = 1 - Math.pow((1+i), -(prestamo.getPlazo()));
 		cuota = dividendo/divisor;
+		
 		return cuota;
 	}
 }
