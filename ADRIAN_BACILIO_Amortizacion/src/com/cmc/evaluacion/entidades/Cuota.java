@@ -16,7 +16,7 @@ public class Cuota {
 	}
 	
 	public void mostrarPrestamo() {
-		System.out.println(numero+"\t|"+cuota+"\t|"+inicio+"\t|"+interes+"\t|"+abonoCapital+"\t|"+saldo);
+		System.out.println(numero+"\t|"+cuota+"|"+inicio+"\t|"+interes+"\t\t|"+abonoCapital+"\t\t|"+saldo);
 	}
 	
 	public double getCuota() {
