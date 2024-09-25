@@ -42,5 +42,10 @@ public class Prestamo {
 	public ArrayList<Cuota> getCuotas() {
 		return cuotas;
 	}
+
+	public void mostrarPrestamo() {
+		System.out.println("Monto: "+monto+", Interes: "+interes+", Plazo: "+plazo);
+		
+	}
 	
 }
