@@ -1,5 +1,7 @@
 package com.krakedev.estaticos.ejercicio.entidades;
 
+import com.krakedev.estaticos.ejercicio.utils.Util;
+
 public class Alarma {
 	private int dia;
 	private int hora;
@@ -38,7 +40,7 @@ public class Alarma {
 
 	@Override
 	public String toString() {
-		return "Alarma [dia=" + dia + ", hora=" + hora + ", minuto=" + minuto + "]";
+		return "Alarma ["+Util.formatearDia(dia)+", "+Util.formatearHora(hora)+":"+Util.formatearHora(minuto)+"]";
 	}
 	
 	
