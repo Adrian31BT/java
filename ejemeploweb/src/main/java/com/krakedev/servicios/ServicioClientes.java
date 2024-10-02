@@ -1,10 +1,13 @@
 package com.krakedev.servicios;
 
+import java.util.ArrayList;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -26,7 +29,7 @@ public class ServicioClientes {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Cliente buscar() {
-		Cliente cliente = new Cliente("0923138747","Adrian Bacilio");
+		Cliente cliente = new Cliente("0923138747","Adrian Bacilio",0);
 		return cliente;
 	}
 	@Path("insertar")
@@ -57,5 +60,53 @@ public class ServicioClientes {
 			return Response.serverError().build();
 		}
 		
+	}
+	
+	@Path("all")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response obtenerClientes(){
+		ClientesBDD cli = new ClientesBDD();
+		ArrayList<Cliente> clientes = null;
+		
+		try {
+			clientes = cli.recuperarTodos();
+			return Response.ok(clientes).build();
+		} catch (KrakeDevException e) {
+			e.printStackTrace();
+			return Response.serverError().build();
+		}	
+	}
+	
+	@Path("buscarPorCedula/{cedulaParam}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response buscarPorCedula(@PathParam("cedulaParam") String cedula){
+		ClientesBDD cli = new ClientesBDD();
+		Cliente cliente = null;
+		
+		try {
+			cliente = cli.buscarPorPK(cedula);
+			return Response.ok(cliente).build();
+		} catch (KrakeDevException e) {
+			e.printStackTrace();
+			return Response.serverError().build();
+		}	
+	}
+	
+	@Path("buscarPorNumHijos/{numeroHijosParam}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response buscarPorNumeroHijos(@PathParam("numeroHijosParam") int numeroHijos){
+		ClientesBDD cli = new ClientesBDD();
+		ArrayList<Cliente> clientes = null;
+		
+		try {
+			clientes = cli.buscarPorNumeroHijos(numeroHijos);
+			return Response.ok(clientes).build();
+		} catch (KrakeDevException e) {
+			e.printStackTrace();
+			return Response.serverError().build();
+		}	
 	}
 }
